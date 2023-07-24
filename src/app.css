@@ -1,0 +1,240 @@
+@use postcss-preset-env {
+  stage: 0;
+}
+
+/* config.css */
+
+:root {
+  --baseColor: #606468;
+}
+
+/* helpers/align.css */
+
+.align {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+}
+
+.grid {
+  inline-size: 90%;
+  margin-inline: auto;
+  max-inline-size: 20rem;
+}
+
+/* helpers/hidden.css */
+
+.hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+/* helpers/icon.css */
+
+:root {
+  --iconFill: var(--baseColor);
+}
+
+.icons {
+  display: none;
+}
+
+.icon {
+  block-size: 1em;
+  display: inline-block;
+  fill: var(--iconFill);
+  inline-size: 1em;
+  vertical-align: middle;
+}
+
+/* layout/base.css */
+
+:root {
+  --htmlFontSize: 100%;
+
+  --bodyBackgroundColor: #2c3338;
+  --bodyColor: var(--baseColor);
+  --bodyFontFamily: "Open Sans";
+  --bodyFontFamilyFallback: sans-serif;
+  --bodyFontSize: 0.875rem;
+  --bodyFontWeight: 400;
+  --bodyLineHeight: 1.5;
+}
+
+* {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: var(--htmlFontSize);
+}
+
+body {
+  background-color: var(--bodyBackgroundColor);
+  color: var(--bodyColor);
+  font-family: var(--bodyFontFamily), var(--bodyFontFamilyFallback);
+  font-size: var(--bodyFontSize);
+  font-weight: var(--bodyFontWeight);
+  line-height: var(--bodyLineHeight);
+  margin: 0;
+  min-block-size: 100vh;
+}
+
+/* modules/anchor.css */
+
+:root {
+  --anchorColor: #eee;
+}
+
+a {
+  color: var(--anchorColor);
+  outline: 0;
+  text-decoration: none;
+}
+
+a:focus,
+a:hover {
+  text-decoration: underline;
+}
+
+/* modules/form.css */
+
+:root {
+  --formGap: 0.875rem;
+}
+
+input {
+  background-image: none;
+  border: 0;
+  color: inherit;
+  font: inherit;
+  margin: 0;
+  outline: 0;
+  padding: 0;
+  transition: background-color 0.3s;
+}
+
+input[type="submit"] {
+  cursor: pointer;
+}
+
+.form {
+  display: grid;
+  gap: var(--formGap);
+}
+
+.form .form__title {
+  font-size: 28px;
+}
+
+.form input[type="password"],
+.form input[type="text"],
+.form input[type="submit"] {
+  inline-size: 100%;
+}
+
+.form__field {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.form__field div {
+  display: flex;
+}
+
+.form__input {
+  flex: 1;
+}
+
+/* modules/form.css */
+
+:root {
+  --formBorderRadus: 0.25rem;
+  --formColor: #eee;
+
+  --formInputBackgroundColor: #3b4148;
+  --formInputHoverBackgroundColor: #434a52;
+
+  --formLabelBackgroundColor: #363b41;
+
+  --formSubmitBackgroundColor: #ea4c88;
+  --formSubmitColor: #eee;
+  --formSubmitHoverBackgroundColor: #d44179;
+}
+
+.form {
+  color: var(--formColor);
+}
+
+.form label,
+.form input[type="text"],
+.form input[type="password"],
+.form input[type="submit"] {
+  border-radius: var(--formBorderRadus);
+  padding: 1rem;
+}
+
+.form label {
+  background-color: var(--formLabelBackgroundColor);
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+  padding-inline: 1.25rem;
+}
+
+.form input[type="password"],
+.form input[type="text"] {
+  background-color: var(--formInputBackgroundColor);
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+}
+
+.form input[type="password"]:focus,
+.form input[type="password"]:hover,
+.form input[type="text"]:focus,
+.form input[type="text"]:hover {
+  background-color: var(--formInputHoverBackgroundColor);
+}
+
+.form input[type="submit"] {
+  background-color: var(--formSubmitBackgroundColor);
+  color: var(--formSubmitColor);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.form input[type="submit"]:focus,
+.form input[type="submit"]:hover {
+  background-color: var(--formSubmitHoverBackgroundColor);
+}
+
+.form label.error {
+  border: 1px solid rgb(184, 39, 39);
+  border-right: 0px;
+}
+
+.form .form__input.error {
+  border: 1px solid rgb(184, 39, 39);
+}
+
+.form__field .error__label {
+  color: rgb(184, 39, 39);
+  margin: 6px 0 0 0 !important;
+}
+
+/* modules/text.css */
+
+p {
+  margin-block: 1.5rem;
+}
+
+.text--center {
+  text-align: center;
+}

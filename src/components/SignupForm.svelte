@@ -1,4 +1,5 @@
 <script lang="ts">
+  import clsx from "clsx";
   import { signupformSchema } from "../schema/zod.schema";
   import { signupFormState, type SignupFormValues } from "../store/store";
 
@@ -42,71 +43,79 @@
   >
     <h2 class="form__title">Signup Form</h2>
     <div class="form__field">
-      <label for="signup__email"
-        ><svg class="icon">
-          <use xlink:href="#icon-user" />
-        </svg><span class="hidden">Email</span></label
-      >
-      <input
-        autocomplete="email"
-        id="signup__email"
-        type="text"
-        name="email"
-        class="form__input"
-        placeholder="Email"
-        bind:value={formValues.email}
-      />
-    </div>
+      <div>
+        <label for="signup__email" class={formErrors.email && "error"}
+          ><svg class="icon">
+            <use xlink:href="#icon-user" />
+          </svg><span class="hidden">Email</span></label
+        >
+        <input
+          autocomplete="email"
+          id="signup__email"
+          type="text"
+          name="email"
+          class={clsx("form__input", formErrors.email && "error")}
+          placeholder="Email"
+          bind:value={formValues.email}
+        />
+      </div>
 
-    {#if formErrors.email}
-      <p>
-        {formErrors.email[0]}
-      </p>
-    {/if}
+      {#if formErrors.email}
+        <p class="error__label">
+          {formErrors.email[0]}
+        </p>
+      {/if}
+    </div>
 
     <div class="form__field">
-      <label for="signup__password"
-        ><svg class="icon">
-          <use xlink:href="#icon-lock" />
-        </svg><span class="hidden">Password</span></label
-      >
-      <input
-        id="signup__password"
-        type="password"
-        name="password"
-        class="form__input"
-        placeholder="Password"
-        bind:value={formValues.password}
-      />
-    </div>
+      <div>
+        <label for="signup__password" class={formErrors.password && "error"}
+          ><svg class="icon">
+            <use xlink:href="#icon-lock" />
+          </svg><span class="hidden">Password</span></label
+        >
+        <input
+          id="signup__password"
+          type="password"
+          name="password"
+          class={clsx("form__input", formErrors.password && "error")}
+          placeholder="Password"
+          bind:value={formValues.password}
+        />
+      </div>
 
-    {#if formErrors.password}
-      <p>
-        {formErrors.password[0]}
-      </p>
-    {/if}
+      {#if formErrors.password}
+        <p class="error__label">
+          {formErrors.password[0]}
+        </p>
+      {/if}
+    </div>
 
     <div class="form__field">
-      <label for="signup__confirm__password"
-        ><svg class="icon">
-          <use xlink:href="#icon-lock" />
-        </svg><span class="hidden">Confirm Password</span></label
-      >
-      <input
-        id="signup__confirm__password"
-        type="password"
-        name="password"
-        class="form__input"
-        placeholder="Confirm Password"
-        bind:value={formValues.confirmPassword}
-      />
-    </div>
+      <div>
+        <label
+          for="signup__confirm__password"
+          class={formErrors.confirmPassword && "error"}
+          ><svg class="icon">
+            <use xlink:href="#icon-lock" />
+          </svg><span class="hidden">Confirm Password</span></label
+        >
+        <input
+          id="signup__confirm__password"
+          type="password"
+          name="password"
+          class={clsx("form__input", formErrors.confirmPassword && "error")}
+          placeholder="Confirm Password"
+          bind:value={formValues.confirmPassword}
+        />
+      </div>
 
-    {#if formErrors.confirmPassword}
-      <p>
-        {formErrors.confirmPassword[0]}
-      </p>
-    {/if}
+      {#if formErrors.confirmPassword}
+        <p class="error__label">
+          {formErrors.confirmPassword[0]}
+        </p>
+      {/if}
+    </div>
 
     <div class="form__field">
       <input type="submit" value="Sign In" />

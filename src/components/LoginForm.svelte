@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { Link } from "svelte-routing";
   import { signinformSchema } from "../schema/zod.schema";
   import { loginFormState, type LoginFormValues } from "../store/store";
   import { clsx } from "clsx";
@@ -93,7 +94,7 @@
   </form>
 
   <p class="text--center">
-    Not a member? <a href="#">Sign up now</a>
+    Not a member? <Link to="/signup">Sign up now</Link>
     <svg class="icon">
       <use xlink:href="#icon-arrow-right" />
     </svg>

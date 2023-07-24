@@ -2,6 +2,7 @@
   import clsx from "clsx";
   import { signupformSchema } from "../schema/zod.schema";
   import { signupFormState, type SignupFormValues } from "../store/store";
+  import { Link } from "svelte-routing";
 
   type SignupFormErrors = {
     email: string[] | "";
@@ -123,7 +124,7 @@
   </form>
 
   <p class="text--center">
-    Not a member? <a href="#">Login in now</a>
+    Not a member? <Link to="/">Login in now</Link>
     <svg class="icon">
       <use xlink:href="#icon-arrow-right" />
     </svg>

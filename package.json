@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "clsx": "^2.0.0",
+    "svelte-routing": "^1.11.0",
     "uuid": "^9.0.0",
     "zod": "^3.21.4"
   }

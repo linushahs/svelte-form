@@ -7,21 +7,30 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "check": "svelte-check --tsconfig ./tsconfig.json"
+    "check": "svelte-check --tsconfig ./tsconfig.json",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "coverage": "vitest run --coverage"
   },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^2.4.2",
+    "@testing-library/svelte": "^4.0.3",
+    "@testing-library/user-event": "^14.4.3",
     "@tsconfig/svelte": "^5.0.0",
-    "svelte": "^4.0.5",
+    "svelte": "^4.0.0-next.3",
     "svelte-check": "^3.4.6",
+    "ts-node": "^10.9.1",
     "tslib": "^2.6.0",
     "typescript": "^5.0.2",
     "vite": "^4.4.5"
   },
   "dependencies": {
+    "@vitest/ui": "^0.33.0",
     "clsx": "^2.0.0",
+    "jsdom": "^22.1.0",
     "svelte-routing": "^1.11.0",
     "uuid": "^9.0.0",
+    "vitest": "^0.33.0",
     "zod": "^3.21.4"
   }
 }
